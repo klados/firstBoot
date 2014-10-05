@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#install dialog
-#install xdialog ,window 
+#Created by George Klados 5/10/14 kladgeo@gmail.com
+#FirstBoot is a script to install some usefull programmes on your pc
 
 OS=$(lsb_release -si)                    #capture the user distro
 
