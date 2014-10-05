@@ -42,15 +42,15 @@ choice=`cat $tempfile`                   #store the file to the variable
 
 
 case $retval in 
-0)										 #if the user choose something from the list	
+0)					 #if the user choose something from the list	
 	for I in $choice
     do                                   #for all the elements of the array
        	sudo -S $pm install $I  -y       #install the i element
     done 
 
-    sudo -S yum update  -y               #update the system
+    sudo -S yum update  -y              #update the system
 ;;
-1)										 #press cancel						
+1)				       #press cancel						
 	echo "Nothing installed, Goodbye";;
 255)
     echo "ESC pressed.";;
