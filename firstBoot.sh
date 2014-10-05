@@ -13,7 +13,7 @@ OS=$(lsb_release -si)                    #capture the user distro
       read "Give the package manager name of your distro" pm     #read the name of your package manager
     fi
 
-sudo -S $pm install dialog  #install the gui library
+sudo -S $pm install dialog -y  #install the gui library
 
 DIALOG=${DIALOG=dialog}     #create the terminal gui
 
