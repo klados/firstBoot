@@ -56,4 +56,4 @@ case $retval in
     echo "ESC pressed.";;
 esac
 
-#end of the script
+#end of  script
