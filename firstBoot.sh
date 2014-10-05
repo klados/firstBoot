@@ -1,44 +1,59 @@
-#!/bin/bash  
+#!/bin/bash
 
-#Created by George Klados 4/10/14 kladgeo@gmail.com
-#FirstBoot is a script to install some usefull programmes on your pc
+#install dialog
+#install xdialog ,window 
 
-declare -a TABLE=(	  #TABLE is an array, contain all the programmes for install
-					'nano'                       #terminal text editor  
-          'gcc'                        #compiler c      
-          'gcc-c++'                    #compiler c++
-          'gnome-tweak-tool'           #usefull programme for gnome
-          'filezilla'                  #transfer files via ssh
-          'guake'                      #drop down terminal
-					'blender'                    #3D modeling
-					'eclipse'                    #java c\c++ IDE    
-					'spyder'                     #python IDE
-          'octave'                     #like matlab
-          'wine'                       #run windows applications
-					);
- 
-clear                                    #clear the terminal
-
-OS=$(lsb_release -si)                    # the user distro
+OS=$(lsb_release -si)                    #capture the user distro
 
     if [  $OS = "Fedora" ]; then
-       echo "-->fedora"
-       pm="yum"                          #fedora package manager
+        pm="yum"                          #fedora package manager
     elif [ $OS = "Ubuntu" ]; then
-    	echo "-->ubuntu"
-    	pm="apt-get"                       #ubuntu package manager           
+    	pm="apt-get"                      #ubuntu package manager           
     else 
-      echo "Give the package manager name of your distro"
-      read pm                             #read the name of your package manager
+      read "Give the package manager name of your distro" pm     #read the name of your package manager
     fi
-    
-#install the programmes of the array
 
-    for I in ${TABLE[@]} 
+sudo -S $pm install dialog  #install the gui library
+
+DIALOG=${DIALOG=dialog}     #create the terminal gui
+
+tempfile=`tempfile 2>/dev/null` || tempfile=/tmp/test$$    #create a temp file
+trap "rm -f $tempfile" 0 1 2 5 15                          #delete the temp file at the exit
+
+
+$DIALOG --clear --title "Select the programmes that you wish to install" \
+        --checklist "Press space to select a programme" 200 100 15 \
+        "nano"             "terminal text editor" off \
+        "gcc"              "c compiler" off \
+        "g++"              "g++ compiler" off \
+        "gnome-tweak-tool" "usefull programme for gnome" off \
+        "filezilla"        "transfer files via ssh" off \
+        "guake"            "drop down terminal" off \
+        "blender"          "3D modeling" off \
+        "eclipse"          "java c\c++ IDE" off \
+        "spyder"           "python IDE" off \
+        "octave"           "like matlab" off \
+        "wine"             "run windows applications" off 2> $tempfile
+
+retval=$?
+
+
+choice=`cat $tempfile`                   #store the file to the variable 
+
+
+case $retval in 
+0)										 #if the user choose something from the list	
+	for I in $choice
     do                                   #for all the elements of the array
        	sudo -S $pm install $I  -y       #install the i element
     done 
 
-    sudo -S yum update                   #update the system
+    sudo -S yum update  -y               #update the system
+;;
+1)										 #press cancel						
+	echo "Nothing installed, Goodbye";;
+255)
+    echo "ESC pressed.";;
+esac
 
-echo "---end of script---"
+#end of the script
