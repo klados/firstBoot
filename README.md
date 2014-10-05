@@ -1,0 +1,4 @@
+firstBoot
+=========
+
+install usefulls programmes 
