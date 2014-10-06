@@ -25,7 +25,7 @@ $DIALOG --clear --title "Select the programmes that you wish to install" \
         --checklist "Press space to select a programme" 200 100 15 \
         "nano"             "terminal text editor" off \
         "gcc"              "c compiler" off \
-        "g++"              "g++ compiler" off \
+        "gcc-c++"              "g++ compiler" off \
         "gnome-tweak-tool" "usefull programme for gnome" off \
         "filezilla"        "transfer files via ssh" off \
         "guake"            "drop down terminal" off \
