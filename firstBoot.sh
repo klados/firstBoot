@@ -46,12 +46,12 @@ choice=`cat $tempfile`                   #store the file to the variable, 1 line
 
 
 case $retval in 
-0)										 #if the user choose something from the list	
+0)					 #if the user choose something from the list	
     sudo -S $pm install $choice  -y      #install the i element
 
     sudo -S yum update  -y               #update the system
 ;;
-1)										 #press cancel						
+1)					 #press cancel						
 	echo "Nothing installed, Goodbye";;
 255)
     echo "ESC pressed.";;
