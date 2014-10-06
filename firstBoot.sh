@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#install dialog
-#install xdialog ,window 
+#Created by George Klados 5/10/14 kladgeo@gmail.com
+#FirstBoot is a script to install some usefull programmes on your pc
 
 OS=$(lsb_release -si)                    #capture the user distro
 
@@ -13,7 +13,7 @@ OS=$(lsb_release -si)                    #capture the user distro
       read "Give the package manager name of your distro" pm     #read the name of your package manager
     fi
 
-sudo -S $pm install dialog  #install the gui library
+sudo -S $pm install dialog -y #install the gui library
 
 DIALOG=${DIALOG=dialog}     #create the terminal gui
 
@@ -32,21 +32,22 @@ $DIALOG --clear --title "Select the programmes that you wish to install" \
         "blender"          "3D modeling" off \
         "eclipse"          "java c\c++ IDE" off \
         "spyder"           "python IDE" off \
+        "bluefish"         "php editor" off \
+        "codeblocks"       "c\c++, Fortran IDE" off \
         "octave"           "like matlab" off \
+        "thunderbird"      "email check" off \
         "wine"             "run windows applications" off 2> $tempfile
 
 retval=$?
 
+clear
 
-choice=`cat $tempfile`                   #store the file to the variable 
+choice=`cat $tempfile`                   #store the file to the variable, 1 line 
 
 
 case $retval in 
 0)										 #if the user choose something from the list	
-	for I in $choice
-    do                                   #for all the elements of the array
-       	sudo -S $pm install $I  -y       #install the i element
-    done 
+    sudo -S $pm install $choice  -y      #install the i element
 
     sudo -S yum update  -y               #update the system
 ;;
@@ -56,4 +57,4 @@ case $retval in
     echo "ESC pressed.";;
 esac
 
-#end of the script
+#end of  script
