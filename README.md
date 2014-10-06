@@ -1,4 +1,4 @@
 firstBoot
 =========
 
-install usefulls programmes 
+install usefulls programmes, bash script 
