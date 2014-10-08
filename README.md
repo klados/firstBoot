@@ -10,6 +10,23 @@
 * then run the script:
   ./firstBoot
 
+#List of programmes:
+
+  * nano
+  * gcc
+  * gcc-g++
+  * gnome-tweak-tool
+  * filezilla
+  * guake
+  * blender
+  * eclipse
+  * spyder
+  * bluefish
+  * codeblocks
+  * octave
+  * thunderbird
+  * wine
+
 -----
 
 ### GPL License
