@@ -28,7 +28,7 @@
   * wine
 
   
-![ScreenShot](https://www.dropbox.com/s/yeqdqgkkj53vbqc/Screenshot%20from%202014-10-08%2023%3A05%3A31.png?dl=0)
+![Image](https://www.dropbox.com/s/yeqdqgkkj53vbqc/Screenshot%20from%202014-10-08%2023%3A05%3A31.png?dl=0)
 
 
 ### GPL License
