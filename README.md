@@ -3,11 +3,11 @@
 Ιnstall usefulls programmes for a new linux user 
 
 #How to run the script
-=========
-*first of all go to the script location and make the script executable:
+
+* first of all go to the script location and make the script executable:
   chmod +x firstBoot.sh
 
-*then run the script:
+* then run the script:
   ./firstBoot
 
 =========
