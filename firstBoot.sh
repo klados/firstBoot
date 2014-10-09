@@ -8,7 +8,7 @@ OS=$(lsb_release -si)                    #capture the user distro
     if [  $OS = "Fedora" ]; then
         pm="yum"                          #fedora package manager
     elif [ $OS = "Ubuntu" ]; then
-    	pm="apt-get"                      #ubuntu package manager           
+        pm="apt-get"                      #ubuntu package manager           
     else 
       read "Give the package manager name of your distro" pm     #read the name of your package manager
     fi
@@ -25,7 +25,7 @@ $DIALOG --clear --title "Select the programmes that you wish to install" \
         --checklist "Press space to select a programme" 200 100 15 \
         "nano"             "terminal text editor" off \
         "gcc"              "c compiler" off \
-        "g++"              "g++ compiler" off \
+        "gcc-c++"              "g++ compiler" off \
         "gnome-tweak-tool" "usefull programme for gnome" off \
         "filezilla"        "transfer files via ssh" off \
         "guake"            "drop down terminal" off \
@@ -35,6 +35,7 @@ $DIALOG --clear --title "Select the programmes that you wish to install" \
         "bluefish"         "php editor" off \
         "codeblocks"       "c\c++, Fortran IDE" off \
         "octave"           "like matlab" off \
+        "texmaker"         "LaTex" off\
         "thunderbird"      "email check" off \
         "wine"             "run windows applications" off 2> $tempfile
 
@@ -46,13 +47,13 @@ choice=`cat $tempfile`                   #store the file to the variable, 1 line
 
 
 case $retval in 
-0)										 #if the user choose something from the list	
+0)                                       #if the user choose something from the list    
     sudo -S $pm install $choice  -y      #install the i element
 
     sudo -S yum update  -y               #update the system
 ;;
-1)										 #press cancel						
-	echo "Nothing installed, Goodbye";;
+1)                                       #press cancel                      
+    echo "Nothing installed, Goodbye";;
 255)
     echo "ESC pressed.";;
 esac
