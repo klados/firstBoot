@@ -8,7 +8,7 @@ OS=$(lsb_release -si)                    #capture the user distro
     if [  $OS = "Fedora" ]; then
         pm="yum"                          #fedora package manager
     elif [ $OS = "Ubuntu" ]; then
-        pm="apt-get"                      #ubuntu package manager           
+    	pm="apt-get"                      #ubuntu package manager           
     else 
       read "Give the package manager name of your distro" pm     #read the name of your package manager
     fi
@@ -35,10 +35,7 @@ $DIALOG --clear --title "Select the programmes that you wish to install" \
         "bluefish"         "php editor" off \
         "codeblocks"       "c\c++, Fortran IDE" off \
         "octave"           "like matlab" off \
-<<<<<<< HEAD
-        "texmaker"         "LaTex" off\
-=======
->>>>>>> 00976223f1081e0d00aaf8f110fe29eed502a3ad
+        "maketext"          "LaTex" off \
         "thunderbird"      "email check" off \
         "wine"             "run windows applications" off 2> $tempfile
 
@@ -50,22 +47,13 @@ choice=`cat $tempfile`                   #store the file to the variable, 1 line
 
 
 case $retval in 
-<<<<<<< HEAD
-0)                                       #if the user choose something from the list    
-=======
 0)					 #if the user choose something from the list	
->>>>>>> 00976223f1081e0d00aaf8f110fe29eed502a3ad
     sudo -S $pm install $choice  -y      #install the i element
 
     sudo -S yum update  -y               #update the system
 ;;
-<<<<<<< HEAD
-1)                                       #press cancel                      
-    echo "Nothing installed, Goodbye";;
-=======
-1)					 #press cancel						
+1)					#press cancel						
 	echo "Nothing installed, Goodbye";;
->>>>>>> 00976223f1081e0d00aaf8f110fe29eed502a3ad
 255)
     echo "ESC pressed.";;
 esac
