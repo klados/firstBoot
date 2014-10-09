@@ -24,6 +24,7 @@
   * bluefish
   * codeblocks
   * octave
+  * texmaker
   * thunderbird
   * wine
 
