@@ -9,16 +9,11 @@ OS=$(lsb_release -si)                    #capture the user distro
         pm="yum"                          #fedora package manager
     elif [ $OS = "Ubuntu" ]; then
     	pm="apt-get"                      #ubuntu package manager           
-<<<<<<< HEAD
     elif [ $OS = "Debian" ]; then         #debian
         pm="apt-get"
     else
       echo "Give the package manager name of your distro"   
       read  pm     #read the name of your package manager
-=======
-    else 
-      read "Give the package manager name of your distro" pm     #read the name of your package manager
->>>>>>> ade989650c12732a29727c7ace86cf798bf086b8
     fi
 
 sudo -S $pm install dialog -y #install the gui library
@@ -55,20 +50,12 @@ choice=`cat $tempfile`                   #store the file to the variable, 1 line
 
 
 case $retval in 
-<<<<<<< HEAD
-0)										 #if the user choose something from the list	
-=======
 0)					 #if the user choose something from the list	
->>>>>>> ade989650c12732a29727c7ace86cf798bf086b8
     sudo -S $pm install $choice  -y      #install the i element
 
     sudo -S $pm update  -y               #update the system
 ;;
-<<<<<<< HEAD
-1)										 #press cancel						
-=======
-1)					#press cancel						
->>>>>>> ade989650c12732a29727c7ace86cf798bf086b8
+1)					 #press cancel						
 	echo "Nothing installed, Goodbye";;
 255)
     echo "ESC pressed.";;
