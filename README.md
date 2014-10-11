@@ -1,6 +1,6 @@
 #firstBoot
 
-Ιnstall usefulls programmes for a new linux user 
+Ιnstall usefull programmes for a new linux user 
 
 #How to run the script
 
