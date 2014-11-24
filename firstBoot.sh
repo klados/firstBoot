@@ -37,6 +37,7 @@ $DIALOG --clear --title "Select the programmes that you wish to install" \
         "spyder"           "python IDE" off \
         "bluefish"         "php editor" off \
         "codeblocks"       "c\c++, Fortran IDE" off \
+        "mypaint"	   "graphics application" off \	
         "octave"           "like matlab" off \
         "maketext"          "LaTex" off \
         "thunderbird"      "email check" off \
