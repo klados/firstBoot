@@ -8,27 +8,15 @@ OS=$(lsb_release -si)                    #capture the user distro
     if [  $OS = "Fedora" ]; then
         pm="yum"                          #fedora package manager
     elif [ $OS = "Ubuntu" ]; then
-<<<<<<< HEAD
-    	pm="apt-get"                      #ubuntu package manager
-<<<<<<< HEAD
-=======
     	pm="apt-get"                      #ubuntu package manager           
->>>>>>> 5d60ec527ed211cb915a472c1fa418f8229136b6
     elif [ $OS = "Debian" ]; then         #debian
         pm="apt-get"
     else
-      echo "Give the package manager name of your distro"
+      echo "Give the package manager name of your distro"   
       read  pm     #read the name of your package manager
-<<<<<<< HEAD
-=======
-    else
-      read "Give the package manager name of your distro" pm     #read the name of your package manager
->>>>>>> ade989650c12732a29727c7ace86cf798bf086b8
-=======
->>>>>>> 5d60ec527ed211cb915a472c1fa418f8229136b6
     fi
 
-sudo -S $pm install dialog -y 		#install the gui library
+sudo -S $pm install dialog -y #install the gui library
 
 DIALOG=${DIALOG=dialog}     #create the terminal gui
 
@@ -61,33 +49,16 @@ retval=$?
 
 clear
 
-choice=`cat $tempfile`                   #store the file to the variable, 1 line
+choice=`cat $tempfile`                   #store the file to the variable, 1 line 
 
 
-<<<<<<< HEAD
-case $retval in
-<<<<<<< HEAD
-0)										 #if the user choose something from the list
-=======
-0)					 #if the user choose something from the list
->>>>>>> ade989650c12732a29727c7ace86cf798bf086b8
-=======
 case $retval in 
 0)					 #if the user choose something from the list	
->>>>>>> 5d60ec527ed211cb915a472c1fa418f8229136b6
-    sudo -S $pm install $choice  -y      #install the i element
+    sudo -S $pm install $choice  -y      #install the  elements
 
-    sudo -S $pm update  -y               #update the system
+    #sudo -S $pm update  -y               #update the system (optional)
 ;;
-<<<<<<< HEAD
-<<<<<<< HEAD
-1)										 #press cancel
-=======
-1)					#press cancel
->>>>>>> ade989650c12732a29727c7ace86cf798bf086b8
-=======
-1)					 #press cancel						
->>>>>>> 5d60ec527ed211cb915a472c1fa418f8229136b6
+1)										 #press cancel						
 	echo "Nothing installed, Goodbye";;
 255)
     echo "ESC pressed.";;

@@ -1,20 +1,20 @@
 #firstBoot
 
-<<<<<<< HEAD
-Ιnstall usefulls programmes for a new linux user
+
+Ιnstall usefulls programs for a new linux user
 =======
-Ιnstall usefull programmes for a new linux user 
->>>>>>> 5d60ec527ed211cb915a472c1fa418f8229136b6
+Ιnstall usefull programs for a new linux user
 
 #How to run the script
 
-* first of all go to the script location and make the script executable:
-  chmod +x firstBoot.sh
+* Go to the script location and make the script executable:
+  `chmod +x firstBoot.sh`
 
-* then run the script:
-  ./firstBoot
+* then run the script: `./firstBoot`
 
-#List of programmes:
+* If your package manager does not auto detected type `apt-get` from ubuntu , `yum` feom fedora ...  
+
+#List of programs:
 
   * nano
   * gcc
