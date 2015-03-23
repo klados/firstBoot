@@ -1,6 +1,10 @@
 #firstBoot
 
+<<<<<<< HEAD
 Ιnstall usefulls programmes for a new linux user
+=======
+Ιnstall usefull programmes for a new linux user 
+>>>>>>> 5d60ec527ed211cb915a472c1fa418f8229136b6
 
 #How to run the script
 
