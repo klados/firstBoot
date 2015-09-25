@@ -1,18 +1,18 @@
 #!/bin/bash
 
 #Created by George Klados 5/10/14 kladgeo@gmail.com
-#FirstBoot is a script to install some usefull programmes on your pc
+#FirstBoot is a script to install some usefull programs on your pc
 
 OS=$(lsb_release -si)                    #capture the user distro
 
     if [  $OS = "Fedora" ]; then
-        pm="yum"                          #fedora package manager
+        pm="dnf"                          #fedora package manager
     elif [ $OS = "Ubuntu" ]; then
-    	pm="apt-get"                      #ubuntu package manager           
+    	pm="apt-get"                      #ubuntu package manager
     elif [ $OS = "Debian" ]; then         #debian
         pm="apt-get"
     else
-      echo "Give the package manager name of your distro"   
+      echo "Give the package manager name of your distro"
       read  pm     #read the name of your package manager
     fi
 
@@ -31,6 +31,8 @@ $DIALOG --clear --title "Select the programmes that you wish to install" \
         "git"              "Share your code" off \
         "gcc-c++"          "g++ compiler" off \
         "gnome-tweak-tool" "usefull programme for gnome" off \
+        "nodejs"           "Node.js is designed to build scalable network applications" off \
+        "npm"              "npm makes it easy for JavaScript developers to share and reuse code" off \
         "filezilla"        "transfer files via ssh" off \
         "guake"            "drop down terminal" off \
         "blender"          "3D modeling" off \
@@ -49,16 +51,24 @@ retval=$?
 
 clear
 
-choice=`cat $tempfile`                   #store the file to the variable, 1 line 
+choice=`cat $tempfile`                   #store the file to the variable, 1 line
 
 
-case $retval in 
-0)					 #if the user choose something from the list	
+case $retval in
+0)					 #if the user choose something from the list
     sudo -S $pm install $choice  -y      #install the  elements
 
-    #sudo -S $pm update  -y               #update the system (optional)
+    echo -e "----------------------- \n\n\e[31mDo you want to update your system?\e[0m y/n"
+    read ans                             #read the answer
+
+    if [ $ans = "y" ]; then
+      sudo -S $pm update  -y             #update the system
+    else
+      echo "Goodbye !!!!"
+    fi
+
 ;;
-1)										 #press cancel						
+1)										 #press cancel
 	echo "Nothing installed, Goodbye";;
 255)
     echo "ESC pressed.";;
